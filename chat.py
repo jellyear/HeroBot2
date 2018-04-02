@@ -8,7 +8,7 @@ from model import Seq2Seq
 from dialog import Dialog
 
 
-class ChatBot:
+class HeroBot:
 
     def __init__(self, voc_path, train_dir):
         self.dialog = Dialog()
@@ -70,10 +70,10 @@ class ChatBot:
 
 
 def main(_):
-    print("깨어나는 중 입니다. 잠시만 기다려주세요...\n")
+    print("Carl이 깨어나는 중입니다. 잠시만 기다려 주세요...\n")
 
-    chatbot = ChatBot(FLAGS.voc_path, FLAGS.train_dir)
-    chatbot.run()
+    herobot = HeroBot(FLAGS.voc_path, FLAGS.train_dir)
+    herobot.run()
 
 if __name__ == "__main__":
     tf.app.run()

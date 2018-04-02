@@ -1,6 +1,4 @@
-# 자세한 설명은 상위 폴더의 03 - Seq2Seq.py 등에서 찾으실 수 있습니다.
 import tensorflow as tf
-
 
 # Seq2Seq 기본 클래스
 class Seq2Seq:

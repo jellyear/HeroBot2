@@ -1,16 +1,16 @@
-# 챗봇
+# 히어로봇(HeroBot)
 
-- 간단하게 만든 Seq2Seq 모델을 이용하여 챗봇을 만들어봅니다.
-- 소설 어린왕자에서 어린왕자와 여우의 25번의 대화가 포함되어 있습니다.
-- 위 대화로 간단히 학습시킨 모델이 있어 채팅해보기를 바로 사용해볼 수 있습니다. (data/chat.log 를 봐주세요)
+- 한양대학교 캡스톤디자인 과제.
+- Seq2Seq 모델을 이용한 챗봇.
+- 영화 Up에서 주인공 Carl과 Russell의 대화가 포함되어 있습니다.
 - Seq2Seq 모델 자체는 크게 변경하지 않았으며, 모델을 이용하기 위해 단어 임베딩을 만들고, 이를 이용하는 전처리/후처리 코드가 많이 추가되었습니다.
 
 ### 사용방법
 
 기본적으로 다음 데이터를 사용합니다. config.py 파일에서 추가 옵션들을 확인해보세요.
 
-- data/chat.log : 대화 데이터
-- data/chat.voc : 어휘 데이터
+- data/CarlAndRussell.csv : 대화 데이터
+- data/Up.voc : 어휘 데이터
 
 ### 채팅해보기
 
@@ -18,7 +18,7 @@
 python chat.py
 ```
 
-<img src="screenshot.png" width="480">
+<img src="herobot_example.png" width="480">
 
 ### 학습시키기
 
