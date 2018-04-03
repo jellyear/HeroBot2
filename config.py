@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 
-tf.app.flags.DEFINE_string("train_dir", "./model", "학습한 신경망을 저장할 폴더")
+tf.app.flags.DEFINE_string("train_dir", "./model/Nemo", "학습한 신경망을 저장할 폴더")
 tf.app.flags.DEFINE_string("log_dir", "./logs", "로그를 저장할 폴더")
 tf.app.flags.DEFINE_string("ckpt_name", "conversation.ckpt-5000", "체크포인트 파일명")
 

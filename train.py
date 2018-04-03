@@ -9,22 +9,26 @@ from dialog import Dialog
 
 
 def train(dialog, batch_size=100, epoch=100):
-    model = Seq2Seq(dialog.vocab_size)
+    model = Seq2Seq(dialog.vocab_size) # generate model
 
     with tf.Session() as sess:
         # TODO: 세션을 로드하고 로그를 위한 summary 저장등의 로직을 Seq2Seq 모델로 넣을 필요가 있음
         ckpt = tf.train.get_checkpoint_state(FLAGS.train_dir)
+
+        # if model exists,
         if ckpt and tf.train.checkpoint_exists(ckpt.model_checkpoint_path):
-            print("다음 파일에서 모델을 읽는 중 입니다..", ckpt.model_checkpoint_path)
+            print("다음 파일에서 모델을 읽는 중 입니다...", ckpt.model_checkpoint_path)
             model.saver.restore(sess, ckpt.model_checkpoint_path)
-        else:
-            print("새로운 모델을 생성하는 중 입니다.")
+        # if model does not exists,
+        else: 
+            print("새로운 모델을 생성하는 중 입니다...")
             sess.run(tf.global_variables_initializer())
 
+        # for tensorboard
         writer = tf.summary.FileWriter(FLAGS.log_dir, sess.graph)
 
+        # total_batch = 전체 examples 을 batch_size로 나눈 수
         total_batch = int(math.ceil(len(dialog.examples)/float(batch_size)))
-
         
         for step in range(total_batch*epoch):
             enc_input, dec_input, targets = dialog.next_batch(batch_size)
@@ -73,6 +77,7 @@ def test(dialog, batch_size=100):
 
 
 def main(_):
+    # dialog 열어서 vocab, examples load
     dialog = Dialog()
 
     dialog.load_vocab(FLAGS.voc_path)
